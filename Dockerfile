@@ -1,5 +1,5 @@
-FROM debian:9
-MAINTAINER MqllR <>
+FROM arm32v7/debian:9
+MAINTAINER @kroschu <>
 
 ARG IPFS_VERSION=0.4.18
 ARG ARCH=arm
@@ -11,8 +11,8 @@ RUN apt update && \
     tar xzf go-ipfs_v${IPFS_VERSION}_linux-${ARCH}.tar.gz
 
 
-FROM busybox:1-glibc
-MAINTAINER MqllR <>
+FROM arm32v7/busybox:glibc
+MAINTAINER @kroschu <>
 
 ENV IPFS_PATH /data/.ipfs
 ENV IPFS_STORAGE_MAX 2G
